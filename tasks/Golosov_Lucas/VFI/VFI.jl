@@ -40,5 +40,5 @@ function solve_policy(grid::grids, model::model_params, tm::transition_matrices,
     end
 
     println("VFI took ", iter, " iterations")
-    return Vnoadjustnew, Vadjustnew, policy
+    return Vnoadjustnew, Vadjustnew, policy, policyadjust
 end

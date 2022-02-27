@@ -1,0 +1,9 @@
+#This PDF should exclude the title, author names, abstract, acknowledgement footnote, reference list, and exhibits.
+
+DingelNeiman_wordcount.tex: DingelNeiman.tex
+	cat DingelNeiman.tex | \
+	sed '/begin{figure}/,/end{figure}/d' | \
+	sed '/begin{table}/,/end{table}/d' | \
+	sed '/begin{abstract}/,/end{abstract}/d' | \
+	grep -v 'maketitle' | \
+	sed 's/^\\bibliography{/\\nobibliography{/' > $@
